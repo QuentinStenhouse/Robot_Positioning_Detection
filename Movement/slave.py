@@ -35,7 +35,6 @@ if __name__ == '__main__':
 	CONS.init_interrupt1()
 	CONS.init_interrupt2()
 	while True:
-		print("In the while")
 		receive = port.read().decode()
 		print(receive)
 		if receive == "F":
@@ -44,23 +43,16 @@ if __name__ == '__main__':
 			while response != "S":
 				CONS.cons_value()
 				pid1.SetPoint = CONS.cons_1
-				#print("La consigne:",CONS.cons_1)
 				pid1.update(CONS.val_cons1)
-				#print("La valeur obtenue:",CONS.val_cons1)
-				#print("La sortie PID1:",pid1.output)
 				pid2.SetPoint = CONS.cons_2
 				pid2.update(CONS.val_cons2)
-				#print("La sortie PID2:",pid2.output)
 				CONS.PWM_out(pid1.output,pid2.output)
 				pwm1_output = 70 + CONS.pwm1
 				pwm2_output = 70 + CONS.pwm2
-				#print("Le PWM1 de sortie:",pwm1_output)
-				#print("Le PWM2 de sortie:",pwm2_output)
 				RUN.pwm_setup(pwm1_output,pwm2_output)
 				CONS.pulse_reset()
 				sleep(period)
 				response = port.read().decode()
-				#print(response)
 		if response == "S":
 			RUN.stop()
 		if receive == "L":

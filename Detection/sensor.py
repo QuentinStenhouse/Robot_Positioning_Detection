@@ -15,7 +15,7 @@ class sensor:
 		GPIO.setup(self.trigger, GPIO.OUT)
 		GPIO.setup(self.echo, GPIO.IN)
 
-	#Procedure which will get the distance of an obstacle
+	#Procedure which will get the distance under a value
 	def get_distance_minus(self, value):
 		pulse_start = 0
 		pulse_end = 0
@@ -37,6 +37,7 @@ class sensor:
 			print(dist)
 			if self.distan <= value:
 				return 1
+	#Procedure which will get the distance above a value
 	def get_distance_plus(self, value):
                 pulse_start = 0
                 pulse_end = 0
@@ -57,7 +58,7 @@ class sensor:
                         GPIO.setup(self.echo, GPIO.IN)
                         if self.distan >= value:
                                 return 1
-	#Those procedures will set the parameters of the classe sensor
+	#Those procedures will set the pins of the beaglebone black for the sensor
 	def setEcho(self,Echo):
 		self.echo = Echo
 

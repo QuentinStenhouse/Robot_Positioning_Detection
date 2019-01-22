@@ -11,22 +11,17 @@ if __name__ == '__main__':
 	SENSOR = sensor.sensor(echo, trigger)
 	SENSOR.GPIO_setup()
 	while True:
-		print("Waiting for the g")
 		receive = port.read().decode()
 		if receive == "G":
-			print(receive)
-			print("Got the ready")
 			port.write(str.encode("F"))
 			SENSOR.get_distance_minus(50)
 			port.write(str.encode("S"))
 			time.sleep(0.1)
-			#print(SENSOR.distan)
 			#Get the UWB position
 			port.write(str.encode("L"))
 			SENSOR.get_distance_plus(75)
 			port.write(str.encode("S"))
-			print(SENSOR.distan)
-			"""port.write(str.encode("F"))
+			port.write(str.encode("F"))
 			SENSOR.get_distance_plus(80)
 			port.write(str.encode("S"))
 			port.write(str.encode("X"))
@@ -44,4 +39,4 @@ if __name__ == '__main__':
 			#while pos.start() == saved:
 			port.write(str.encode("F"))
 			port.write(str.encode("S"))
-			port.write(str.encode("l"))"""
+			port.write(str.encode("l"))

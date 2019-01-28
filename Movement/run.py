@@ -37,7 +37,7 @@ class run:
 		GPIO.output(self.Motorbin1,GPIO.HIGH)
 		GPIO.output(self.Motorbin2,GPIO.LOW)
 		PWM.start(self.Motorben,30)
-	#Procedure that let the wheels g backward
+	#Procedure that let the wheels go backward
 	def backward(self):
 		GPIO.output(self.Motorain1,GPIO.LOW)
 		GPIO.output(self.Motorain2,GPIO.HIGH)

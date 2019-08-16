@@ -15,7 +15,7 @@ The folder positioning contains for the moment the gerber files of a simple pcb 
 # The detection folder 
 
 An other folder which is named detection (with an ultrasonic sensor) is using the scripts that allow the robot to run in the 2-D and to detect obstacle with an ultrasonic sensor. Two beaglebone black are used and are communicating in UART. One is used for the detection and the positioning and the other one for the control of the motors. So the first one gives the instructions to the second one. 
-[![Watch the video]](https://www.youtube.com/watch?v=Vqdz8S_jt8U&feature=youtu.be)
+[![Watch the video]](https://www.youtube.com/watch?v=ZYvrIiy5sM0&feature=youtu.be)
 
 
 # The movement folder 

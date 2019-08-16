@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+import Adafruit_BBIO.GPIO as GPIO
 from threading import Timer
 from time import sleep
 import time

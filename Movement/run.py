@@ -1,7 +1,6 @@
 import Adafruit_BBIO.GPIO as GPIO
 import Adafruit_BBIO.PWM as PWM
 from time import sleep
-import math,time
 from threading import Timer
 
 class run:
@@ -25,18 +24,19 @@ class run:
 		GPIO.setup(self.Motorben,GPIO.OUT)
 
 	#Setup the pwm parameter that the user want to achieve
-	def pwm_setup(self, pwm1, pwm2):
-		PWM.set_duty_cycle(self.Motoraen, pwm1)
-		PWM.set_duty_cycle(self.Motorben, pwm2)
+	def pwm_setup(self,pwm1,pwm2):
+		PWM.set_duty_cycle(self.Motoraen, self.pwm1)
+		PWM.set_duty_cycle(self.Motorben, self.pwm2)
 
 	#Procedure that let the wheels go forward
 	def forward(self):
 		GPIO.output(self.Motorain1,GPIO.HIGH)
 		GPIO.output(self.Motorain2,GPIO.LOW)
-		PWM.start(self.Motoraen,30)
+		PWM.start(self.Motoraen,100)
 		GPIO.output(self.Motorbin1,GPIO.HIGH)
 		GPIO.output(self.Motorbin2,GPIO.LOW)
-		PWM.start(self.Motorben,30)
+		PWM.start(self.Motorben,100)
+
 	#Procedure that let the wheels go backward
 	def backward(self):
 		GPIO.output(self.Motorain1,GPIO.LOW)
@@ -50,18 +50,18 @@ class run:
 	def left_turn(self):
 		GPIO.output(self.Motorbin1, GPIO.LOW)
 		GPIO.output(self.Motorbin2, GPIO.HIGH)
-		PWM.start(self.Motorben,70)
+		PWM.start(self.Motorben,100)
 
 	#Procedure which let the right wheel go backward
 	def right_turn(self):
 		GPIO.output(self.Motorain1, GPIO.LOW)
 		GPIO.output(self.Motorain2, GPIO.HIGH)
-		PWM.start(self.Motoraen,70)
+		PWM.start(self.Motoraen,100)
 
 	#Procedure which stop both wheels
 	def stop(self):
-		PWM.stop(self.Motoraen)
-		PWM.stop(self.Motorben)
+		PWM.stop(self.MotorAEN)
+		PWM.stop(self.MotorBEN)
 
 	#Procedure which is used to avoid an obstacle
 	def avoid_obstacle(self):
